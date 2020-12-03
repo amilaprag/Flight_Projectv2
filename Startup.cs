@@ -66,6 +66,18 @@ namespace Flight_Projectv2
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Flight_Projectv2 v1"));
             }
 
+            //port enabling  
+            //app.UseCors(options => options.WithOrigins("https://localhost:5001").AllowAnyMethod().AllowAnyHeader());
+            //app.UseCors(options => options.WithOrigins("https://localhost:44355").AllowAnyMethod().AllowAnyHeader());
+
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
